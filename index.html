@@ -119,12 +119,7 @@
                 
                 <div class="project-card" onclick="openProject('interview')">
                     <h3>INTERVIEW</h3>
-                    <span class="click-info">(Voir le projet)</span>
-                </div>
-
-                <div class="project-card" onclick="openProject('metrage')">
-                    <h3>COURT-MÉTRAGE</h3>
-                    <span class="click-info">(Voir le projet)</span>
+                    <span class="click-info">(Voir la vidéo)</span>
                 </div>
 
                 <div class="project-card" onclick="openProject('chat')">
@@ -132,29 +127,14 @@
                     <span class="click-info">(Voir le projet)</span>
                 </div>
 
-                <div class="project-card" onclick="openProject('filmy')">
-                    <h3>FILMY</h3>
-                    <span class="click-info">(Voir le projet)</span>
-                </div>
-
                 <div class="project-card" onclick="openProject('affiche_cgw')">
                     <h3>AFFICHE CGW 2026</h3>
-                    <span class="click-info">(Voir le projet)</span>
+                    <span class="click-info">(Voir l'affiche)</span>
                 </div>
 
                 <div class="project-card" onclick="openProject('affiche_parfum')">
                     <h3>AFFICHE PARFUM</h3>
-                    <span class="click-info">(Voir le projet)</span>
-                </div>
-
-                <div class="project-card" onclick="openProject('audit')">
-                    <h3>AUDIT DE COM'</h3>
-                    <span class="click-info">(Voir le projet)</span>
-                </div>
-
-                <div class="project-card" onclick="openProject('reseaux')">
-                    <h3>RÉSEAUX SOCIAUX</h3>
-                    <span class="click-info">(Voir le projet)</span>
+                    <span class="click-info">(Voir l'affiche)</span>
                 </div>
 
             </div>
@@ -171,8 +151,14 @@
                     </div>
 
                     <div class="project-visual-column">
-                        <div class="visual-frame">
-                             <img id="proj-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Visuel du projet">
+                        <div class="visual-frame" id="visual-frame">
+                             <img id="proj-img" src="" alt="Visuel du projet">
+                             
+                             <div id="play-btn" class="play-overlay" style="display: none;">
+                                <span>▶</span>
+                             </div>
+
+                             <div id="video-container" class="video-wrapper" style="display: none;"></div>
                         </div>
                     </div>
                 </div>
@@ -185,8 +171,8 @@
                 <div class="contact-info">
                     <p>Une idée ? Un projet ?</p>
                     <div class="socials">
-                        <a href="https://www.instagram.com/francesca_szn?igsh=MWg3Zjd1YTEwMGM0Nw%3D%3D&utm_source=qr">Instagram</a>
-                        <a href="https://www.linkedin.com/in/francesca-suzzoni-69327b39a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">LinkedIn</a>
+                        <a href="https://www.instagram.com/francesca_szn" target="_blank">Instagram</a>
+                        <a href="https://www.linkedin.com/in/francesca-suzzoni-69327b39a" target="_blank">LinkedIn</a>
                         <a href="mailto:francesca.suzzoni58@gmail.com">Email</a>
                     </div>
                 </div>
@@ -212,11 +198,16 @@
     </main>
 
     <script>
+
+        // Effet curseur
+
         const light = document.querySelector('.cursor-light');
         document.addEventListener('mousemove', (e) => {
             light.style.left = e.clientX - 300 + 'px';
             light.style.top = e.clientY - 300 + 'px';
         });
+
+        // Données des compétences
 
         const skillData = {
             design: [
@@ -234,6 +225,41 @@
             ]
         };
 
+        // Données des projets
+    
+        const projectsData = {
+            'interview': {
+                title: "Interview Vidéo",
+                desc: "Montage dynamique d'une interview dans le thème du kickboxing réalisée dans le cadre d'un projet en audiovisuel. Vidéo bientot disponible.",
+                tags: ["Premiere Pro", "Montage"],
+                type: "video",
+                img: "INTERVIEW.jpg", 
+                embedUrl: "https://youtu.be/1bfxmMpeK84"
+            },
+            'chat': {
+                title: "Mini-Chat",
+                desc: "Développement d'une interface de discussion instantanée. Gestion de l'interface utilisateur.",
+                tags: ["HTML/CSS", "PHP",],
+                type: "image",
+                img: "MINICHAT.jpg"
+            },
+            'affiche_cgw': {
+                title: "Affiche CGW 2026",
+                desc: "Conception de l'affiche officielle pour un événement gaming. Composition dynamique et couleurs néons.",
+                tags: ["Photoshop", "Affiche", "Évènement"],
+                type: "image",
+                img: "CORSICA GAMES WEEK.jpg" 
+            },
+            'affiche_parfum': {
+                title: "Publicité Parfum",
+                desc: "Création d'une affiche publicitaire pour une marque de luxe fictive.",
+                tags: ["Illustrator", "Photoshop", "Affiche"],
+                type: "image",
+                img: "Affiche-parfum.jpg" 
+            }
+        };
+
+        // Fonctions Compétences
         function showDetail(category) {
             document.getElementById('main-skills').style.display = 'none';
             document.getElementById('skill-detail').style.display = 'block';
@@ -255,62 +281,17 @@
             document.getElementById('skill-detail').style.display = 'none';
         }
 
-        const projectsData = {
-            'interview': {
-                title: "Interview Vidéo",
-                desc: "Montage dynamique d'une interview réalisée dans le cadre du BUT. Travail sur le rythme, l'étalonnage et le mixage sonore sous Premiere Pro.",
-                tags: ["Premiere Pro", "Montage"],
-                img: "https://youtu.be/1bfxmMpeK84"
-            },
-            'metrage': {
-                title: "Court-Métrage",
-                desc: "Réalisation d'un court-métrage de fiction. Écriture du scénario, tournage et post-production pour raconter une histoire visuelle sans paroles.",
-                tags: ["Scénario", "Tournage", "Storytelling"],
-                img: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000&auto=format&fit=crop"
-            },
-            'chat': {
-                title: "Mini-Chat",
-                desc: "Développement d'une interface de discussion instantanée. Gestion de l'interface utilisateur et des interactions en temps réel.",
-                tags: ["HTML/CSS", "PHP", "JS"],
-                img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop"
-            },
-            'filmy': {
-                title: "Filmy",
-                desc: "Création d'un site web inspiré de Letterboxd permettant de lister et noter ses films favoris. Focus sur l'UX/UI Design.",
-                tags: ["Web Design", "Base de données"],
-                img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1000&auto=format&fit=crop"
-            },
-            'affiche_cgw': {
-                title: "Affiche CGW 2026",
-                desc: "Conception de l'affiche officielle pour un événement gaming. Utilisation de couleurs néons et composition dynamique pour attirer l'œil.",
-                tags: ["Photoshop", "Print", "A4"],
-                img: "Corsica Games Week.jpg"
-            },
-            'affiche_parfum': {
-                title: "Publicité Parfum",
-                desc: "Création d'une affiche publicitaire pour une marque de luxe fictive. Travail sur les textures, la lumière et la typographie.",
-                tags: ["Illustrator", "Luxe", "A4"],
-                img: "affiche-parfum.jpg"
-            },
-            'audit': {
-                title: "Audit de Communication",
-                desc: "Analyse approfondie de la communication d'une entreprise existante. Diagnostic SWOT et recommandations stratégiques.",
-                tags: ["Marketing", "Stratégie"],
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
-            },
-            'reseaux': {
-                title: "Gestion Réseaux Sociaux",
-                desc: "Création de contenu et planning éditorial pour une page Instagram et LinkedIn. Cohérence graphique et engagement.",
-                tags: ["Community Management", "Canva"],
-                img: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=1000&auto=format&fit=crop"
-            }
-        };
+        // Fonctions Projets
+        let currentVideoUrl = "";
 
         function openProject(id) {
             const data = projectsData[id];
+            
+            // Remplir textes
             document.getElementById('proj-title').textContent = data.title;
             document.getElementById('proj-desc').textContent = data.desc;
-            document.getElementById('proj-img').src = data.img;
+            
+            // Remplir tags
             const tagsContainer = document.getElementById('proj-tags');
             tagsContainer.innerHTML = '';
             data.tags.forEach(tag => {
@@ -319,11 +300,51 @@
                 span.textContent = tag;
                 tagsContainer.appendChild(span);
             });
+
+            // Réinitialiser la vue visuelle
+            const imgEl = document.getElementById('proj-img');
+            const playBtn = document.getElementById('play-btn');
+            const vidContainer = document.getElementById('video-container');
+            
+            imgEl.src = data.img;
+            imgEl.style.display = 'block';
+            vidContainer.innerHTML = ''; 
+            vidContainer.style.display = 'none';
+
+            // Logique selon le type
+            if (data.type === 'video') {
+                playBtn.style.display = 'flex';
+                currentVideoUrl = data.embedUrl;
+                document.getElementById('visual-frame').onclick = function() {
+                    launchVideo();
+                };
+            } else {
+                playBtn.style.display = 'none';
+                currentVideoUrl = "";
+                document.getElementById('visual-frame').onclick = null;
+            }
+
+            // Afficher le détail
             document.getElementById('projects-main-view').style.display = 'none';
             document.getElementById('project-detail-view').style.display = 'block';
         }
 
+        function launchVideo() {
+            if(!currentVideoUrl) return;
+            
+            const imgEl = document.getElementById('proj-img');
+            const playBtn = document.getElementById('play-btn');
+            const vidContainer = document.getElementById('video-container');
+
+            imgEl.style.display = 'none';
+            playBtn.style.display = 'none';
+            
+            vidContainer.style.display = 'block';
+            vidContainer.innerHTML = `<iframe src="${currentVideoUrl}" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
+
         function closeProject() {
+            document.getElementById('video-container').innerHTML = '';
             document.getElementById('project-detail-view').style.display = 'none';
             document.getElementById('projects-main-view').style.display = 'grid';
         }
