@@ -1,339 +1,517 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Francesca Suzzoni, étudiante en BUT MMI. Découvrez mes projets en design, développement web et audiovisuel.">
-    <title>Portfolio – Francesca Suzzoni</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
- 
-    <div class="cursor-light" aria-hidden="true"></div>
+:root {
+    --bg-dark: #050a14; 
+    --neon-blue: #df99ff; 
+    --neon-purple: #e7b0ff; 
+    --text-main: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
 
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>PORTFOLIO</h1>
-            <p class="subtitle">Francesca Suzzoni</p>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-        </div>
-    </header>
+/* Accessibilité : Focus visible pour la navigation clavier */
+*:focus-visible {
+    outline: 2px solid var(--neon-blue);
+    outline-offset: 4px;
+}
 
-    <main class="container">
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; 
+}
 
-        <section class="section about">
-            <h2 class="section-title">QUI SUIS-JE ?</h2>
-            <div class="about-content">
-                <div class="photo-placeholder">
-                    <img src="IMG_4768.JPG" alt="Portrait de Francesca Suzzoni">
-                </div>
-                <div class="about-text-bubble">
-                    <p>
-                        Salut ! Moi c'est <strong>Francesca</strong>, j'ai 19 ans et je suis étudiante en 
-                        première année de <span class="highlight">BUT MMI</span>. 
-                        Passionnée par l'image, je m'épanouis dans le montage vidéo et le graphisme. 
-                        Curieuse et déterminée, j'aime donner vie à mes idées. 
-                        Bienvenue dans mon univers !
-                    </p>
-                </div>
-            </div>
-        </section>
+/* --- HERO & BACKGROUND --- */
+.cursor-light {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(103, 79, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none; 
+    z-index: 0; 
+    mix-blend-mode: screen; 
+}
 
-        <section class="section parcours">
-            <h2 class="section-title">MON PARCOURS</h2>
-            <div class="parcours-container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="dot"></span>
-                        <div class="timeline-content">
-                            <h3>2022 – 2025 · BAC STMG</h3>
-                            <p>Spécialité marketing</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="dot"></span>
-                        <div class="timeline-content">
-                            <h3>2025 – 2028 · BUT MMI</h3>
-                            <p>Métiers du Multimédia et de l’Internet</p>
-                        </div>
-                    </div>
-                </div>
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://i.pinimg.com/736x/cc/e2/68/cce2680ddfc059117def3633c3067e62.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    z-index: 2; 
+}
 
-                <div class="parcours-info-right">
-                    <div class="info-box">
-                        <h3>MES OBJECTIFS</h3>
-                        <p>Allier mes bases en marketing à mon apprentissage en MMI pour devenir une créative capable de piloter des projets digitaux de A à Z.</p>
-                        <div class="mini-tags">
-                            <span>Exploration</span>
-                            <span>Polyvalence</span>
-                            <span>Design</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(5, 10, 20, 0.7); 
+}
 
-        <section class="section skills">
-            <h2 class="section-title">MES COMPÉTENCES</h2>
-            
-            <div class="skills-grid" id="main-skills">
-                <div class="skill-card" onclick="showDetail('design')" onkeypress="if(event.key==='Enter')showDetail('design')" role="button" tabindex="0">
-                    <h3>DESIGN <span class="click-info">(Cliquez pour voir)</span></h3>
-                    <ul>
-                        <li><img src="https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png" alt="Logo"> Photoshop</li>
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Logo"> Illustrator</li>
-                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogohistory.net%2Fwp-content%2Fuploads%2F2023%2F07%2FCanva-Emblem.png&f=1&nofb=1" alt="Logo"> Canva</li>
-                    </ul>
-                </div>
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
 
-                <div class="skill-card" onclick="showDetail('web')" onkeypress="if(event.key==='Enter')showDetail('web')" role="button" tabindex="0">
-                    <h3>DÉVELOPPEMENT WEB <span class="click-info">(Cliquez pour voir)</span></h3>
-                    <ul>
-                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/html5-40-1175193.png" alt="Logo"> HTML5</li>
-                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/css3-11-1175239.png" alt="Logo"> CSS</li>
-                    </ul>
-                </div>
+.hero h1 {
+    font-family: 'Playfair Display', serif; 
+    font-size: 5rem;
+    margin: 0;
+    letter-spacing: 5px;
+    color: transparent;
+    -webkit-text-stroke: 1px #e7b0ff; 
+    text-shadow: 0 0 20px rgba(223, 153, 255, 0.5);
+}
 
-                <div class="skill-card" onclick="showDetail('audio')" onkeypress="if(event.key==='Enter')showDetail('audio')" role="button" tabindex="0">
-                    <h3>AUDIOVISUEL <span class="click-info">(Cliquez pour voir)</span></h3>
-                    <ul>
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Logo"> Premiere Pro</li>
-                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F948%2F546%2Foriginal%2Fcapcut-logo-on-transparent-white-background-free-vector.jpg&f=1&nofb=1" alt="Logo"> CapCut</li>
-                    </ul>
-                </div>
-            </div>
+.subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--neon-blue);
+    margin-top: 10px;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
 
-            <div id="skill-detail" class="skill-detail-view" style="display: none;">
-                <button class="back-btn" onclick="hideDetail()">← Retour aux compétences</button>
-                <div id="detail-content"></div>
-            </div>
-        </section>
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    z-index: 3;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
 
-        <section class="section projects">
-            <h2 class="section-title">MES PROJETS</h2>
-            
-            <div class="projects-grid" id="projects-main-view">
-                
-                <div class="project-card" onclick="openProject('interview')" onkeypress="if(event.key==='Enter')openProject('interview')" role="button" tabindex="0">
-                    <h3>INTERVIEW</h3>
-                    <span class="click-info">(Voir la vidéo)</span>
-                </div>
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
 
-                <div class="project-card" onclick="openProject('chat')" onkeypress="if(event.key==='Enter')openProject('chat')" role="button" tabindex="0">
-                    <h3>MINI-CHAT</h3>
-                    <span class="click-info">(Voir le projet)</span>
-                </div>
+/* --- STRUCTURE --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1; 
+}
 
-                <div class="project-card" onclick="openProject('affiche_cgw')" onkeypress="if(event.key==='Enter')openProject('affiche_cgw')" role="button" tabindex="0">
-                    <h3>AFFICHE CGW 2026</h3>
-                    <span class="click-info">(Voir l'affiche)</span>
-                </div>
+.section { margin-bottom: 120px; }
 
-                <div class="project-card" onclick="openProject('affiche_parfum')" onkeypress="if(event.key==='Enter')openProject('affiche_parfum')" role="button" tabindex="0">
-                    <h3>AFFICHE PARFUM</h3>
-                    <span class="click-info">(Voir l'affiche)</span>
-                </div>
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-            </div>
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--neon-blue);
+    margin: 10px auto 0;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
 
-            <div id="project-detail-view" class="project-detail-container" style="display: none;">
-                <button class="back-btn" onclick="closeProject()">← Retour aux projets</button>
-                
-                <div class="project-layout">
-                    <div class="project-text-column">
-                        <h3 id="proj-title">Titre du Projet</h3>
-                        <div class="separator-small"></div>
-                        <p id="proj-desc">Description du projet...</p>
-                        <div class="tags" id="proj-tags"></div>
-                    </div>
+/* --- ABOUT --- */
+.about-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    background: var(--glass-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+}
 
-                    <div class="project-visual-column">
-                        <div class="visual-frame" id="visual-frame" role="button" tabindex="0">
-                             <img id="proj-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Aperçu du projet">
-                             
-                             <div id="play-btn" class="play-overlay" style="display: none;">
-                                <span>▶</span>
-                             </div>
+.photo-placeholder {
+    width: 250px;
+    height: 250px;
+    background-color: #222;
+    border-radius: 50%; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(223, 153, 255, 0.2);
+    flex-shrink: 0;
+}
 
-                             <div id="video-container" class="video-wrapper" style="display: none;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
 
-        <section class="section contact">
-            <h2 class="section-title">CONTACT</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <p>Une idée ? Un projet ?</p>
-                    <div class="socials">
-                        <a href="https://www.instagram.com/francesca_szn" target="_blank" rel="noopener">Instagram</a>
-                        <a href="https://www.linkedin.com/in/francesca-suzzoni-69327b39a" target="_blank" rel="noopener">LinkedIn</a>
-                        <a href="mailto:francesca.suzzoni58@gmail.com">Email</a>
-                    </div>
-                </div>
+.about-text-bubble p {
+    font-size: 1rem;
+    color: #e5e5e5; 
+}
 
-                <form class="contact-form" action="#" method="post">
-                    <div class="input-group">
-                        <input id="user-name" type="text" name="name" required>
-                        <label for="user-name">Nom</label>
-                    </div>
-                    <div class="input-group">
-                        <input id="user-email" type="email" name="email" required>
-                        <label for="user-email">Email</label>
-                    </div>
-                    <div class="input-group">
-                        <textarea id="user-message" name="message" rows="4" required></textarea>
-                        <label for="user-message">Message</label>
-                    </div>
-                    <button type="submit">ENVOYER</button>
-                </form>
-            </div>
-        </section>
+.highlight { color: var(--neon-blue); font-weight: bold; }
 
-    </main>
+/* --- PARCOURS --- */
+.parcours-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
 
-    <script>
-        // Effet curseur
-        const light = document.querySelector('.cursor-light');
-        document.addEventListener('mousemove', (e) => {
-            light.style.left = e.clientX - 300 + 'px';
-            light.style.top = e.clientY - 300 + 'px';
-        });
+.timeline {
+    flex: 1; 
+    border-left: 2px solid var(--neon-blue);
+    padding-left: 30px;
+    margin-left: 20px;
+}
 
-        // Données des compétences
-        const skillData = {
-            design: [
-                { name: "Photoshop", img: "https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png", p: 90 },
-                { name: "Illustrator", img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg", p: 85 },
-                { name: "Canva", img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogohistory.net%2Fwp-content%2Fuploads%2F2023%2F07%2FCanva-Emblem.png&f=1&nofb=1", p: 95 }
-            ],
-            web: [
-                { name: "HTML5", img: "https://cdn.iconscout.com/icon/free/png-256/html5-40-1175193.png", p: 80 },
-                { name: "CSS", img: "https://cdn.iconscout.com/icon/free/png-256/css3-11-1175239.png", p: 70 }
-            ],
-            audio: [
-                { name: "Premiere Pro", img: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg", p: 90 },
-                { name: "CapCut", img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F948%2F546%2Foriginal%2Fcapcut-logo-on-transparent-white-background-free-vector.jpg&f=1&nofb=1", p: 95 }
-            ]
-        };
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
 
-        const projectsData = {
-            'interview': {
-                title: "Interview Vidéo",
-                desc: "Montage dynamique d'une interview dans le thème du kickboxing réalisée dans le cadre d'un projet en audiovisuel. Vidéo bientôt disponible.",
-                tags: ["Premiere Pro", "Montage"],
-                type: "video",
-                img: "INTERVIEW.jpg", 
-                embedUrl: "https://www.youtube.com/embed/1bfxmMpeK84"
-            },
-            'chat': {
-                title: "Mini-Chat",
-                desc: "Développement d'une interface de discussion instantanée. Gestion de l'interface utilisateur.",
-                tags: ["HTML/CSS", "PHP"],
-                type: "image",
-                img: "MINICHAT.jpg"
-            },
-            'affiche_cgw': {
-                title: "Affiche CGW 2026",
-                desc: "Conception de l'affiche officielle pour un événement gaming. Composition dynamique et couleurs néons.",
-                tags: ["Photoshop", "Affiche", "Évènement"],
-                type: "image",
-                img: "CORSICA GAMES WEEK.jpg" 
-            },
-            'affiche_parfum': {
-                title: "Publicité Parfum",
-                desc: "Création d'une affiche publicitaire pour une marque de luxe fictive.",
-                tags: ["Illustrator", "Photoshop", "Affiche"],
-                type: "image",
-                img: "Affiche-parfum.jpg" 
-            }
-        };
+.dot {
+    position: absolute;
+    left: -39px; 
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bg-dark);
+    border: 2px solid var(--neon-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--neon-blue);
+    transition: 0.3s;
+}
 
-        function showDetail(category) {
-            document.getElementById('main-skills').style.display = 'none';
-            document.getElementById('skill-detail').style.display = 'block';
-            document.getElementById('detail-content').innerHTML = skillData[category].map(item => `
-                <div class="skill-row">
-                    <div class="skill-info">
-                        <img src="${item.img}" alt="">
-                        <span>${item.name}</span>
-                    </div>
-                    <div class="pie-chart" style="--p: ${item.p}">
-                        <span>${item.p}%</span>
-                    </div>
-                </div>
-            `).join('');
-        }
+.timeline-item:hover .dot { background-color: var(--neon-blue); }
 
-        function hideDetail() {
-            document.getElementById('main-skills').style.display = 'grid';
-            document.getElementById('skill-detail').style.display = 'none';
-        }
+.timeline-content h3 { margin: 0 0 5px 0; color: var(--neon-blue); font-size: 1.1rem; }
+.timeline-content p { margin: 0; font-size: 0.9rem; color: #b0b0b0; }
 
-        let currentVideoUrl = "";
+.parcours-info-right {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+}
 
-        function openProject(id) {
-            const data = projectsData[id];
-            document.getElementById('proj-title').textContent = data.title;
-            document.getElementById('proj-desc').textContent = data.desc;
-            
-            const tagsContainer = document.getElementById('proj-tags');
-            tagsContainer.innerHTML = '';
-            data.tags.forEach(tag => {
-                const span = document.createElement('span');
-                span.className = 'tag';
-                span.textContent = tag;
-                tagsContainer.appendChild(span);
-            });
+.info-box {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+}
 
-            const imgEl = document.getElementById('proj-img');
-            const playBtn = document.getElementById('play-btn');
-            const vidContainer = document.getElementById('video-container');
-            
-            imgEl.src = data.img;
-            imgEl.style.display = 'block';
-            vidContainer.innerHTML = ''; 
-            vidContainer.style.display = 'none';
+.info-box h3 {
+    color: var(--neon-blue);
+    margin-top: 0;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
 
-            if (data.type === 'video') {
-                playBtn.style.display = 'flex';
-                currentVideoUrl = data.embedUrl;
-                document.getElementById('visual-frame').onclick = launchVideo;
-                document.getElementById('visual-frame').onkeypress = (e) => { if(e.key==='Enter') launchVideo(); };
-            } else {
-                playBtn.style.display = 'none';
-                currentVideoUrl = "";
-                document.getElementById('visual-frame').onclick = null;
-            }
+.info-box p {
+    font-size: 0.9rem;
+    color: #e0e0e0; 
+    font-style: italic;
+}
 
-            document.getElementById('projects-main-view').style.display = 'none';
-            document.getElementById('project-detail-view').style.display = 'block';
-        }
+.mini-tags {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
-        function launchVideo() {
-            if(!currentVideoUrl) return;
-            const imgEl = document.getElementById('proj-img');
-            const playBtn = document.getElementById('play-btn');
-            const vidContainer = document.getElementById('video-container');
-            imgEl.style.display = 'none';
-            playBtn.style.display = 'none';
-            vidContainer.style.display = 'block';
-            vidContainer.innerHTML = `<iframe src="${currentVideoUrl}" title="Lecteur vidéo - ${document.getElementById('proj-title').textContent}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-        }
+.mini-tags span {
+    font-size: 0.7rem;
+    color: var(--neon-purple);
+    border: 1px solid var(--neon-purple);
+    padding: 3px 8px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
 
-        function closeProject() {
-            document.getElementById('video-container').innerHTML = '';
-            document.getElementById('project-detail-view').style.display = 'none';
-            document.getElementById('projects-main-view').style.display = 'grid';
-        }
-    </script>
-</body>
-</html>
+/* --- GRIDS & CARDS --- */
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.skill-card, .project-card {
+    background: var(--glass-bg);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    transition: 0.3s;
+    text-align: center;
+    cursor: pointer;
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-blue);
+    box-shadow: 0 5px 20px rgba(223, 153, 255, 0.1);
+}
+
+.skill-card h3, .project-card h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.click-info { display: block; font-size: 0.7rem; color: var(--neon-blue); margin-top: 5px; font-weight: 300; }
+
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.skill-card li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.skill-card img { width: 20px; filter: drop-shadow(0 0 2px rgba(255,255,255,0.5)); }
+
+/* --- DETAIL VIEWS --- */
+.skill-detail-view, .project-detail-container {
+    background: var(--glass-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.skill-info { display: flex; align-items: center; gap: 15px; }
+.skill-info img { width: 30px; }
+
+.pie-chart {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(var(--neon-purple) calc(var(--p) * 1%), #222 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pie-chart::after {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: #0b1120; 
+    border-radius: 50%;
+}
+
+.pie-chart span {
+    position: relative;
+    z-index: 1;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.back-btn {
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    background: transparent;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+/* --- PROJECT DETAIL SPECIFIC --- */
+.project-layout { display: flex; gap: 40px; align-items: flex-start; }
+.project-text-column { flex: 1; text-align: left; margin-top: 20px; }
+.project-text-column h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px; color: white; }
+.separator-small { width: 40px; height: 2px; background: var(--neon-blue); margin-bottom: 20px; box-shadow: 0 0 8px var(--neon-blue); }
+.project-text-column p { color: #e0e0e0; font-size: 1rem; line-height: 1.8; margin-bottom: 20px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    border: 1px solid var(--neon-blue);
+    border-radius: 20px;
+    color: var(--neon-blue);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.project-visual-column { 
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+}
+
+.visual-frame { 
+    width: 100%; 
+    max-width: 500px; 
+    min-height: 300px; 
+    background: transparent; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    position: relative; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer;
+}
+
+.visual-frame img { 
+    width: 100%; 
+    height: auto; 
+    object-fit: contain; 
+    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(223, 153, 255, 0.2); 
+    transition: transform 0.5s; 
+}
+
+/* Styles pour la vidéo et le bouton Play */
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    background: #000;
+}
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 60px;
+    background: rgba(223, 153, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+    pointer-events: none; 
+    box-shadow: 0 0 20px rgba(223, 153, 255, 0.6);
+    transition: 0.3s;
+}
+
+.visual-frame:hover .play-overlay {
+    background: var(--neon-blue);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- CONTACT --- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: var(--glass-bg);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.contact-info { flex: 1; min-width: 250px; }
+.contact-form { flex: 2; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+
+.socials { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.socials a { color: white; text-decoration: none; transition: 0.3s; }
+.socials a:hover { color: var(--neon-blue); padding-left: 10px; }
+
+.input-group { position: relative; }
+input, textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    padding: 10px 0;
+    color: white;
+    font-family: inherit;
+    outline: none;
+}
+input:focus, textarea:focus { border-bottom-color: var(--neon-blue); }
+
+.input-group label {
+    position: absolute;
+    top: 10px; left: 0;
+    color: #a6a6a6; 
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid ~ label {
+    top: -20px; font-size: 0.75rem; color: var(--neon-blue);
+}
+
+button {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .about-content { flex-direction: column; text-align: center; }
+    .hero h1 { font-size: 3.5rem; }
+    .parcours-container { flex-direction: column; }
+    .parcours-info-right { width: 100%; }
+    .info-box { max-width: none; }
+    .contact-container { flex-direction: column; }
+    .project-layout { flex-direction: column; }
+    .project-text-column, .project-visual-column { width: 100%; }
+    .project-text-column { order: 2; } 
+    .project-visual-column { order: 1; margin-bottom: 20px; }
+}
