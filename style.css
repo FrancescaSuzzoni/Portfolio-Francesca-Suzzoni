@@ -7,12 +7,6 @@
     --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Accessibilité : Focus visible pour la navigation clavier */
-*:focus-visible {
-    outline: 2px solid var(--neon-blue);
-    outline-offset: 4px;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -23,7 +17,7 @@ body {
     overflow-x: hidden; 
 }
 
-/* --- HERO & BACKGROUND --- */
+
 .cursor-light {
     position: fixed;
     width: 600px;
@@ -31,6 +25,7 @@ body {
     background: radial-gradient(circle, rgba(103, 79, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
     pointer-events: none; 
     z-index: 0; 
+    transform: translate(0, 0); 
     mix-blend-mode: screen; 
 }
 
@@ -110,10 +105,9 @@ body {
     text-align: center;
     margin-bottom: 60px;
     position: relative;
-    display: block;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .section-title::after {
@@ -126,7 +120,7 @@ body {
     box-shadow: 0 0 10px var(--neon-blue);
 }
 
-/* --- ABOUT --- */
+
 .about-content {
     display: flex;
     gap: 50px;
@@ -397,7 +391,7 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    cursor: pointer;
+    cursor: pointer; /* Indique que c'est cliquable pour la vidéo */
 }
 
 .visual-frame img { 
@@ -412,7 +406,7 @@ body {
 /* Styles pour la vidéo et le bouton Play */
 .video-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 9; 
+    aspect-ratio: 16 / 9; /* Format vidéo standard */
     background: #000;
 }
 .video-wrapper iframe {
