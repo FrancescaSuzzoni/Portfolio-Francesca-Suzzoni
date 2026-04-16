@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Francesca Suzzoni, étudiante en BUT MMI. Découvrez mes projets en design, développement web et audiovisuel.">
     <title>Portfolio – Francesca Suzzoni</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
  
-     <div class="cursor-light"></div>
+    <div class="cursor-light" aria-hidden="true"></div>
 
     <header class="hero">
         <div class="hero-overlay"></div>
@@ -28,7 +31,7 @@
             <h2 class="section-title">QUI SUIS-JE ?</h2>
             <div class="about-content">
                 <div class="photo-placeholder">
-                    <img src="IMG_4768.JPG" alt="Photo de Francesca">
+                    <img src="IMG_4768.JPG" alt="Portrait de Francesca Suzzoni">
                 </div>
                 <div class="about-text-bubble">
                     <p>
@@ -42,7 +45,7 @@
             </div>
         </section>
 
-       <section class="section parcours">
+        <section class="section parcours">
             <h2 class="section-title">MON PARCOURS</h2>
             <div class="parcours-container">
                 <div class="timeline">
@@ -80,28 +83,28 @@
             <h2 class="section-title">MES COMPÉTENCES</h2>
             
             <div class="skills-grid" id="main-skills">
-                <div class="skill-card" onclick="showDetail('design')">
+                <div class="skill-card" onclick="showDetail('design')" onkeypress="if(event.key==='Enter')showDetail('design')" role="button" tabindex="0">
                     <h3>DESIGN <span class="click-info">(Cliquez pour voir)</span></h3>
                     <ul>
-                        <li><img src="https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png" alt="Ps"> Photoshop</li>
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Ai"> Illustrator</li>
-                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogohistory.net%2Fwp-content%2Fuploads%2F2023%2F07%2FCanva-Emblem.png&f=1&nofb=1" alt="Canva"> Canva</li>
+                        <li><img src="https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png" alt="Logo"> Photoshop</li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Logo"> Illustrator</li>
+                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogohistory.net%2Fwp-content%2Fuploads%2F2023%2F07%2FCanva-Emblem.png&f=1&nofb=1" alt="Logo"> Canva</li>
                     </ul>
                 </div>
 
-                <div class="skill-card" onclick="showDetail('web')">
+                <div class="skill-card" onclick="showDetail('web')" onkeypress="if(event.key==='Enter')showDetail('web')" role="button" tabindex="0">
                     <h3>DÉVELOPPEMENT WEB <span class="click-info">(Cliquez pour voir)</span></h3>
                     <ul>
-                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/html5-40-1175193.png" alt="HTML"> HTML5</li>
-                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/css3-11-1175239.png" alt="CSS"> CSS</li>
+                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/html5-40-1175193.png" alt="Logo"> HTML5</li>
+                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/css3-11-1175239.png" alt="Logo"> CSS</li>
                     </ul>
                 </div>
 
-                <div class="skill-card" onclick="showDetail('audio')">
+                <div class="skill-card" onclick="showDetail('audio')" onkeypress="if(event.key==='Enter')showDetail('audio')" role="button" tabindex="0">
                     <h3>AUDIOVISUEL <span class="click-info">(Cliquez pour voir)</span></h3>
                     <ul>
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Pr"> Premiere Pro</li>
-                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F948%2F546%2Foriginal%2Fcapcut-logo-on-transparent-white-background-free-vector.jpg&f=1&nofb=1" alt="CapCut"> CapCut</li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Logo"> Premiere Pro</li>
+                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F948%2F546%2Foriginal%2Fcapcut-logo-on-transparent-white-background-free-vector.jpg&f=1&nofb=1" alt="Logo"> CapCut</li>
                     </ul>
                 </div>
             </div>
@@ -117,22 +120,22 @@
             
             <div class="projects-grid" id="projects-main-view">
                 
-                <div class="project-card" onclick="openProject('interview')">
+                <div class="project-card" onclick="openProject('interview')" onkeypress="if(event.key==='Enter')openProject('interview')" role="button" tabindex="0">
                     <h3>INTERVIEW</h3>
                     <span class="click-info">(Voir la vidéo)</span>
                 </div>
 
-                <div class="project-card" onclick="openProject('chat')">
+                <div class="project-card" onclick="openProject('chat')" onkeypress="if(event.key==='Enter')openProject('chat')" role="button" tabindex="0">
                     <h3>MINI-CHAT</h3>
                     <span class="click-info">(Voir le projet)</span>
                 </div>
 
-                <div class="project-card" onclick="openProject('affiche_cgw')">
+                <div class="project-card" onclick="openProject('affiche_cgw')" onkeypress="if(event.key==='Enter')openProject('affiche_cgw')" role="button" tabindex="0">
                     <h3>AFFICHE CGW 2026</h3>
                     <span class="click-info">(Voir l'affiche)</span>
                 </div>
 
-                <div class="project-card" onclick="openProject('affiche_parfum')">
+                <div class="project-card" onclick="openProject('affiche_parfum')" onkeypress="if(event.key==='Enter')openProject('affiche_parfum')" role="button" tabindex="0">
                     <h3>AFFICHE PARFUM</h3>
                     <span class="click-info">(Voir l'affiche)</span>
                 </div>
@@ -151,8 +154,8 @@
                     </div>
 
                     <div class="project-visual-column">
-                        <div class="visual-frame" id="visual-frame">
-                             <img id="proj-img" src="" alt="Visuel du projet">
+                        <div class="visual-frame" id="visual-frame" role="button" tabindex="0">
+                             <img id="proj-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Aperçu du projet">
                              
                              <div id="play-btn" class="play-overlay" style="display: none;">
                                 <span>▶</span>
@@ -171,23 +174,23 @@
                 <div class="contact-info">
                     <p>Une idée ? Un projet ?</p>
                     <div class="socials">
-                        <a href="https://www.instagram.com/francesca_szn" target="_blank">Instagram</a>
-                        <a href="https://www.linkedin.com/in/francesca-suzzoni-69327b39a" target="_blank">LinkedIn</a>
+                        <a href="https://www.instagram.com/francesca_szn" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://www.linkedin.com/in/francesca-suzzoni-69327b39a" target="_blank" rel="noopener">LinkedIn</a>
                         <a href="mailto:francesca.suzzoni58@gmail.com">Email</a>
                     </div>
                 </div>
 
-                <form class="contact-form">
+                <form class="contact-form" action="#" method="post">
                     <div class="input-group">
-                        <input id="user-name" type="text" required>
+                        <input id="user-name" type="text" name="name" required>
                         <label for="user-name">Nom</label>
                     </div>
                     <div class="input-group">
-                        <input id="user-email" type="email" required>
+                        <input id="user-email" type="email" name="email" required>
                         <label for="user-email">Email</label>
                     </div>
                     <div class="input-group">
-                        <textarea id="user-message" rows="4" required></textarea>
+                        <textarea id="user-message" name="message" rows="4" required></textarea>
                         <label for="user-message">Message</label>
                     </div>
                     <button type="submit">ENVOYER</button>
@@ -198,9 +201,7 @@
     </main>
 
     <script>
-
         // Effet curseur
-
         const light = document.querySelector('.cursor-light');
         document.addEventListener('mousemove', (e) => {
             light.style.left = e.clientX - 300 + 'px';
@@ -208,7 +209,6 @@
         });
 
         // Données des compétences
-
         const skillData = {
             design: [
                 { name: "Photoshop", img: "https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png", p: 90 },
@@ -225,21 +225,19 @@
             ]
         };
 
-        // Données des projets
-    
         const projectsData = {
             'interview': {
                 title: "Interview Vidéo",
-                desc: "Montage dynamique d'une interview dans le thème du kickboxing réalisée dans le cadre d'un projet en audiovisuel. Vidéo bientot disponible.",
+                desc: "Montage dynamique d'une interview dans le thème du kickboxing réalisée dans le cadre d'un projet en audiovisuel. Vidéo bientôt disponible.",
                 tags: ["Premiere Pro", "Montage"],
                 type: "video",
                 img: "INTERVIEW.jpg", 
-                embedUrl: "https://youtu.be/1bfxmMpeK84"
+                embedUrl: "https://www.youtube.com/embed/1bfxmMpeK84"
             },
             'chat': {
                 title: "Mini-Chat",
                 desc: "Développement d'une interface de discussion instantanée. Gestion de l'interface utilisateur.",
-                tags: ["HTML/CSS", "PHP",],
+                tags: ["HTML/CSS", "PHP"],
                 type: "image",
                 img: "MINICHAT.jpg"
             },
@@ -259,14 +257,13 @@
             }
         };
 
-        // Fonctions Compétences
         function showDetail(category) {
             document.getElementById('main-skills').style.display = 'none';
             document.getElementById('skill-detail').style.display = 'block';
             document.getElementById('detail-content').innerHTML = skillData[category].map(item => `
                 <div class="skill-row">
                     <div class="skill-info">
-                        <img src="${item.img}" alt="${item.name}">
+                        <img src="${item.img}" alt="">
                         <span>${item.name}</span>
                     </div>
                     <div class="pie-chart" style="--p: ${item.p}">
@@ -281,17 +278,13 @@
             document.getElementById('skill-detail').style.display = 'none';
         }
 
-        // Fonctions Projets
         let currentVideoUrl = "";
 
         function openProject(id) {
             const data = projectsData[id];
-            
-            // Remplir textes
             document.getElementById('proj-title').textContent = data.title;
             document.getElementById('proj-desc').textContent = data.desc;
             
-            // Remplir tags
             const tagsContainer = document.getElementById('proj-tags');
             tagsContainer.innerHTML = '';
             data.tags.forEach(tag => {
@@ -301,7 +294,6 @@
                 tagsContainer.appendChild(span);
             });
 
-            // Réinitialiser la vue visuelle
             const imgEl = document.getElementById('proj-img');
             const playBtn = document.getElementById('play-btn');
             const vidContainer = document.getElementById('video-container');
@@ -311,36 +303,30 @@
             vidContainer.innerHTML = ''; 
             vidContainer.style.display = 'none';
 
-            // Logique selon le type
             if (data.type === 'video') {
                 playBtn.style.display = 'flex';
                 currentVideoUrl = data.embedUrl;
-                document.getElementById('visual-frame').onclick = function() {
-                    launchVideo();
-                };
+                document.getElementById('visual-frame').onclick = launchVideo;
+                document.getElementById('visual-frame').onkeypress = (e) => { if(e.key==='Enter') launchVideo(); };
             } else {
                 playBtn.style.display = 'none';
                 currentVideoUrl = "";
                 document.getElementById('visual-frame').onclick = null;
             }
 
-            // Afficher le détail
             document.getElementById('projects-main-view').style.display = 'none';
             document.getElementById('project-detail-view').style.display = 'block';
         }
 
         function launchVideo() {
             if(!currentVideoUrl) return;
-            
             const imgEl = document.getElementById('proj-img');
             const playBtn = document.getElementById('play-btn');
             const vidContainer = document.getElementById('video-container');
-
             imgEl.style.display = 'none';
             playBtn.style.display = 'none';
-            
             vidContainer.style.display = 'block';
-            vidContainer.innerHTML = `<iframe src="${currentVideoUrl}" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            vidContainer.innerHTML = `<iframe src="${currentVideoUrl}" title="Lecteur vidéo - ${document.getElementById('proj-title').textContent}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
         }
 
         function closeProject() {
