@@ -6,8 +6,86 @@
     <title>Portfolio – Francesca Suzzoni</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- AJOUT : Styles de la barre de navigation -->
+    <style>
+        .main-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5vw;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-navbar .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .main-navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-navbar .nav-links li a {
+            text-decoration: none;
+            color: #cccccc;
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .main-navbar .nav-links li a:hover {
+            color: #ffffff;
+        }
+
+        /* Responsive basique pour mobile */
+        @media (max-width: 768px) {
+            .main-navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .main-navbar .nav-links {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- AJOUT : Structure HTML de la barre de navigation -->
+    <nav class="main-navbar">
+        <div class="nav-logo" onclick="scrollToSection('.hero')">FS.</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="scrollToSection('.about'); return false;">Qui suis-je ?</a></li>
+            <li><a href="#" onclick="scrollToSection('.parcours'); return false;">Parcours</a></li>
+            <li><a href="#" onclick="scrollToSection('.skills'); return false;">Compétences</a></li>
+            <li><a href="#" onclick="scrollToSection('.projects'); return false;">Projets</a></li>
+            <li><a href="#" onclick="scrollToSection('.contact'); return false;">Contact</a></li>
+        </ul>
+    </nav>
+
     <?php
 
 $host = 'localhost'; 
@@ -35,6 +113,370 @@ $user_data = $statement->fetch(PDO::FETCH_ASSOC);
 // print_r($user_data);
 
 ?>
+
+    <div class="cursor-light"></div>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>PORTFOLIO</h1>
+            <p class="subtitle"><?php echo $user_data['title']; ?></p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="section about">
+            <h2 class="section-title">QUI SUIS-JE ?</h2>
+            <div class="about-content">
+                <div class="photo-placeholder">
+                    <img src="IMG_4768.JPG" alt="Photo de Francesca">
+                </div>
+                <div class="about-text-bubble">
+                    <p>
+                        Salut ! Moi c'est <strong>Francesca</strong>, j'ai 19 ans et je suis étudiante en 
+                        première année de <span class="highlight">BUT MMI</span>. 
+                        Passionnée par l'image, je m'épanouis dans le montage vidéo et le graphisme. 
+                        Curieuse et déterminée, j'aime donner vie à mes idées. 
+                        Bienvenue dans mon univers !
+                    </p>
+                </div>
+            </div>
+        </section>
+
+       <section class="section parcours">
+            <h2 class="section-title">MON PARCOURS</h2>
+            <div class="parcours-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="dot"></span>
+                        <div class="timeline-content">
+                            <h3>2022 – 2025 · BAC STMG</h3>
+                            <p>Spécialité marketing</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="dot"></span>
+                        <div class="timeline-content">
+                            <h3>2025 – 2028 · BUT MMI</h3>
+                            <p>Métiers du Multimédia et de l’Internet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parcours-info-right">
+                    <div class="info-box">
+                        <h3>MES OBJECTIFS</h3>
+                        <p>Allier mes bases en marketing à mon apprentissage en MMI pour devenir une créative capable de piloter des projets digitaux de A à Z.</p>
+                        <div class="mini-tags">
+                            <span>Exploration</span>
+                            <span>Polyvalence</span>
+                            <span>Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section skills">
+            <h2 class="section-title">MES COMPÉTENCES</h2>
+            
+            <div class="skills-grid" id="main-skills">
+                <div class="skill-card" onclick="showDetail('design')">
+                    <h3>DESIGN <span class="click-info">(Cliquez pour voir)</span></h3>
+                    <ul>
+                        <li><img src="https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png" alt="Ps"> Photoshop</li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Ai"> Illustrator</li>
+                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogohistory.net%2Fwp-content%2Fuploads%2F2023%2F07%2FCanva-Emblem.png&f=1&nofb=1" alt="Canva"> Canva</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card" onclick="showDetail('web')">
+                    <h3>DÉVELOPPEMENT WEB <span class="click-info">(Cliquez pour voir)</span></h3>
+                    <ul>
+                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/html5-40-1175193.png" alt="HTML"> HTML5</li>
+                        <li><img src="https://cdn.iconscout.com/icon/free/png-256/css3-11-1175239.png" alt="CSS"> CSS</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card" onclick="showDetail('audio')">
+                    <h3>AUDIOVISUEL <span class="click-info">(Cliquez pour voir)</span></h3>
+                    <ul>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Pr"> Premiere Pro</li>
+                        <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F948%2F546%2Foriginal%2Fcapcut-logo-on-transparent-white-background-free-vector.jpg&f=1&nofb=1" alt="CapCut"> CapCut</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="skill-detail" class="skill-detail-view" style="display: none;">
+                <button class="back-btn" onclick="hideDetail()">← Retour aux compétences</button>
+                <div id="detail-content"></div>
+            </div>
+        </section>
+
+        <section class="section projects">
+            <h2 class="section-title">MES PROJETS</h2>
+            
+            <div class="projects-grid" id="projects-main-view">
+                
+                <div class="project-card" onclick="openProject('interview')">
+                    <h3>INTERVIEW</h3>
+                    <span class="click-info">(Voir la vidéo)</span>
+                </div>
+
+                <div class="project-card" onclick="openProject('chat')">
+                    <h3>MINI-CHAT</h3>
+                    <span class="click-info">(Voir le projet)</span>
+                </div>
+
+                <div class="project-card" onclick="openProject('affiche_cgw')">
+                    <h3>AFFICHE CGW 2026</h3>
+                    <span class="click-info">(Voir l'affiche)</span>
+                </div>
+
+                <div class="project-card" onclick="openProject('affiche_parfum')">
+                    <h3>AFFICHE PARFUM</h3>
+                    <span class="click-info">(Voir l'affiche)</span>
+                </div>
+
+            </div>
+
+            <div id="project-detail-view" class="project-detail-container" style="display: none;">
+                <button class="back-btn" onclick="closeProject()">← Retour aux projets</button>
+                
+                <div class="project-layout">
+                    <div class="project-text-column">
+                        <h3 id="proj-title">Titre du Projet</h3>
+                        <div class="separator-small"></div>
+                        <p id="proj-desc">Description du projet...</p>
+                        <div class="tags" id="proj-tags"></div>
+                    </div>
+
+                    <div class="project-visual-column">
+                        <div class="visual-frame" id="visual-frame">
+                             <img id="proj-img" src="" alt="Visuel du projet">
+                             
+                             <div id="play-btn" class="play-overlay" style="display: none;">
+                                <span>▶</span>
+                             </div>
+
+                             <div id="video-container" class="video-wrapper" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <?php
+
+// execute a query
+$sql1 = "SELECT * FROM social_media"; 
+$statement = $pdo->query($sql1);
+$user_social = $statement->fetch(PDO::FETCH_ASSOC);
+// print_r($user_data);
+
+?>
+
+        <section class="section contact">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>Une idée ? Un projet ?</p>
+                    <div class="socials">
+                        <a href="<?php echo $user_social['Instagram']; ?>" target="_blank">Instagram</a>
+                        <a href="<?php echo $user_social['Linkedin']; ?>" target="_blank">LinkedIn</a>
+                        <a href="mailto:<?php echo $user_social['email']; ?>">Email</a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="input-group">
+                        <input id="user-name" type="text" required>
+                        <label for="user-name">Nom</label>
+                    </div>
+                    <div class="input-group">
+                        <input id="user-email" type="email" required>
+                        <label for="user-email">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="user-message" rows="4" required></textarea>
+                        <label for="user-message">Message</label>
+                    </div>
+                    <button type="submit">ENVOYER</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- AJOUT : Script de défilement fluide pour la navbar -->
+    <script>
+        function scrollToSection(selector) {
+            const section = document.querySelector(selector);
+            if(section) {
+                // Prends en compte la hauteur de la navbar pour ne pas masquer le titre
+                const navbarHeight = document.querySelector('.main-navbar').offsetHeight;
+                const sectionPosition = section.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                window.scrollTo({ top: sectionPosition, behavior: 'smooth' });
+            }
+        }
+    </script>
+
+    <script>
+
+        const light = document.querySelector('.cursor-light');
+        document.addEventListener('mousemove', (e) => {
+            light.style.left = e.clientX - 300 + 'px';
+            light.style.top = e.clientY - 300 + 'px';
+        });
+
+ 
+
+        const skillData = {
+            design: [
+                { name: "Photoshop", img: "https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png", p: 90 },
+                { name: "Illustrator", img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg", p: 85 },
+                { name: "Canva", img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogohistory.net%2Fwp-content%2Fuploads%2F2023%2F07%2FCanva-Emblem.png&f=1&nofb=1", p: 95 }
+            ],
+            web: [
+                { name: "HTML5", img: "https://cdn.iconscout.com/icon/free/png-256/html5-40-1175193.png", p: 80 },
+                { name: "CSS", img: "https://cdn.iconscout.com/icon/free/png-256/css3-11-1175239.png", p: 70 }
+            ],
+            audio: [
+                { name: "Premiere Pro", img: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg", p: 90 },
+                { name: "CapCut", img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F948%2F546%2Foriginal%2Fcapcut-logo-on-transparent-white-background-free-vector.jpg&f=1&nofb=1", p: 95 }
+            ]
+        };
+
+      
+    
+        const projectsData = {
+            'interview': {
+                title: "Interview Vidéo",
+                desc: "Montage dynamique d'une interview dans le thème du kickboxing réalisée dans le cadre d'un projet en audiovisuel. Vidéo bientot disponible.",
+                tags: ["Premiere Pro", "Montage"],
+                type: "video",
+                img: "INTERVIEW.jpg", 
+                embedUrl: "https://youtu.be/1bfxmMpeK84"
+            },
+            'chat': {
+                title: "Mini-Chat",
+                desc: "Développement d'une interface de discussion instantanée. Gestion de l'interface utilisateur.",
+                tags: ["HTML/CSS", "PHP",],
+                type: "image",
+                img: "MINICHAT.jpg"
+            },
+            'affiche_cgw': {
+                title: "Affiche CGW 2026",
+                desc: "Conception de l'affiche officielle pour un événement gaming. Composition dynamique et couleurs néons.",
+                tags: ["Photoshop", "Affiche", "Évènement"],
+                type: "image",
+                img: "CORSICA GAMES WEEK.jpg" 
+            },
+            'affiche_parfum': {
+                title: "Publicité Parfum",
+                desc: "Création d'une affiche publicitaire pour une marque de luxe fictive.",
+                tags: ["Illustrator", "Photoshop", "Affiche"],
+                type: "image",
+                img: "Affiche-parfum.jpg" 
+            }
+        };
+
+       
+        function showDetail(category) {
+            document.getElementById('main-skills').style.display = 'none';
+            document.getElementById('skill-detail').style.display = 'block';
+            document.getElementById('detail-content').innerHTML = skillData[category].map(item => `
+                <div class="skill-row">
+                    <div class="skill-info">
+                        <img src="${item.img}" alt="${item.name}">
+                        <span>${item.name}</span>
+                    </div>
+                    <div class="pie-chart" style="--p: ${item.p}">
+                        <span>${item.p}%</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function hideDetail() {
+            document.getElementById('main-skills').style.display = 'grid';
+            document.getElementById('skill-detail').style.display = 'none';
+        }
+
+    
+        let currentVideoUrl = "";
+
+        function openProject(id) {
+            const data = projectsData[id];
+            
+          
+            document.getElementById('proj-title').textContent = data.title;
+            document.getElementById('proj-desc').textContent = data.desc;
+            
+            
+            const tagsContainer = document.getElementById('proj-tags');
+            tagsContainer.innerHTML = '';
+            data.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'tag';
+                span.textContent = tag;
+                tagsContainer.appendChild(span);
+            });
+
+            
+            const imgEl = document.getElementById('proj-img');
+            const playBtn = document.getElementById('play-btn');
+            const vidContainer = document.getElementById('video-container');
+            
+            imgEl.src = data.img;
+            imgEl.style.display = 'block';
+            vidContainer.innerHTML = ''; 
+            vidContainer.style.display = 'none';
+
+        
+            if (data.type === 'video') {
+                playBtn.style.display = 'flex';
+                currentVideoUrl = data.embedUrl;
+                document.getElementById('visual-frame').onclick = function() {
+                    launchVideo();
+                };
+            } else {
+                playBtn.style.display = 'none';
+                currentVideoUrl = "";
+                document.getElementById('visual-frame').onclick = null;
+            }
+
+            
+            document.getElementById('projects-main-view').style.display = 'none';
+            document.getElementById('project-detail-view').style.display = 'block';
+        }
+
+        function launchVideo() {
+            if(!currentVideoUrl) return;
+            
+            const imgEl = document.getElementById('proj-img');
+            const playBtn = document.getElementById('play-btn');
+            const vidContainer = document.getElementById('video-container');
+
+            imgEl.style.display = 'none';
+            playBtn.style.display = 'none';
+            
+            vidContainer.style.display = 'block';
+            vidContainer.innerHTML = `<iframe src="${currentVideoUrl}" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
+
+        function closeProject() {
+            document.getElementById('video-container').innerHTML = '';
+            document.getElementById('project-detail-view').style.display = 'none';
+            document.getElementById('projects-main-view').style.display = 'grid';
+        }
+    </script>
+</body>
+</html>?>
 
     <div class="cursor-light"></div>
 
